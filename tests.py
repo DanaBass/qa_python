@@ -95,5 +95,7 @@ class TestBooksCollector:
         collector_with_harry_potter_fantastic_book.delete_book_from_favorites('Гарри Поттер')
         assert len(collector_with_harry_potter_fantastic_book.get_list_of_favorites_books()) == 0
 
-    def test_get_list_of_favorites_books_initially_empty(self, collector):
-        assert len(collector.get_list_of_favorites_books()) == 0
+    def test_add_book_to_favorites(self, collector):
+        collector.add_new_book('Тихий дон')
+        collector.add_book_in_favorites('Тихий дон')
+        assert 'Тихий дон' in collector.get_list_of_favorites_books()
